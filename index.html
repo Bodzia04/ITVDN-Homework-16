@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Задание 1: */
+        .form-group{
+            margin: 5px;
+        }
+
+        .form-group label{
+            width: 80px;
+            display: inline-block;
+        }
+        .form-group span{
+            display: none;
+        }
+        /* Задание 1: */
+    </style>
 </head>
 <body>
-    
+    <!-- Задание 1: -->
+    <form>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" name="loginInput" id="login" required minlength="4">
+            <span class="hint" id="loginHint">Your login must be at least 4 characters long</span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="passwordInput" id="password" required>
+            <span class="hint" id="passwordHint">The password must contain letters, numbers and a special character</span>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="su" value="Register">
+        </div>
+    </form>
+    <!-- Задание 1: -->
     <script src="file.js"></script>
 </body>
 </html>
