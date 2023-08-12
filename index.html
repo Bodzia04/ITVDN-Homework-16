@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* Задание 1: */
+        /* Задание 1,2: */
         .form-group{
             margin: 5px;
         }
@@ -17,12 +17,12 @@
         .form-group span{
             display: none;
         }
-        /* Задание 1: */
+        /* Задание 1,2: */
     </style>
 </head>
 <body>
     <!-- Задание 1: -->
-    <form>
+    <!-- <form>
         <div class="form-group">
             <label for="login">Login</label>
             <input type="text" name="loginInput" id="login" required minlength="4">
@@ -36,8 +36,23 @@
         <div class="form-group">
             <input type="submit" name="su" value="Register">
         </div>
-    </form>
+    </form> -->
     <!-- Задание 1: -->
+    <!-- Задание 2: -->
+    <form>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" name="loginInput" id="login" required minlength="4">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="passwordInput" id="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{6,}" minlength="6">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+    <!-- Задание 2: -->
     <script src="file.js"></script>
 </body>
 </html>
