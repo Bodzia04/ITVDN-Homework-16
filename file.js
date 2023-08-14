@@ -44,15 +44,56 @@
         Проверку нужно организовать с помощью встроенной валидации.
         Регулярное выражение для проверки пароля - (?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{6,}
         */
-        let form = document.forms[0];
+        // let form = document.forms[0];
 
-        form.addEventListener('submit', function(e){
-            let loginUser = form.loginInput.value;
-            let passwordUser = form.passwordInput.value;
-            alert('Login: ' + loginUser + "\n" +  'Password: ' + passwordUser);
-        });
+        // form.addEventListener('submit', function(e){
+        //     let loginUser = form.loginInput.value;
+        //     let passwordUser = form.passwordInput.value;
+        //     alert('Login: ' + loginUser + "\n" +  'Password: ' + passwordUser);
+        // });
         
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const form = document.forms[0];
+
+form.addEventListener("submit", function (e) {
+    alert("Форма отправлена");
+});
+
+form.passwordConfirmInput.addEventListener("input", function () {
+    if (form.passwordConfirmInput.value != form.passwordInput.value) {
+        form.passwordConfirmInput.setCustomValidity("Пароль и подтверждение пароля не совпадают.");
+        form.passwordInput.setCustomValidity("Пароль и подтверждение пароля не совпадают.");
+    }
+    else {
+        form.passwordConfirmInput.setCustomValidity(""); 
+        form.passwordInput.setCustomValidity("");
+    }
+});
+
+/*
+Задание 3:
+Доработайте валидацию формы. Поле ввода Email не должно содержать значения
+admin@example.com, superuser@example.com и user@example.com
+Во время ввода значений в поле ввода email выполняйте проверку введенного значения и если
+значение совпадает с запрещенным, выводите сообщение об этом рядом с полем ввода.
+Проверку выполняйте на событие input
+*/
+
+let blockedEmails = ['admin@example.com','superuser@example.com','user@example.com'];
+let blockedEmailError = document.querySelector('#blockedEmailError');
+form.emailInput.addEventListener('input', function(){
+    let email = form.emailInput.value;
+    if(blockedEmails.indexOf(email) != -1){
+        blockedEmailError.textContent = 'Email ' + email + ' не может использоваться при регестрации'
+    }
+    else{
+        blockedEmailError.textContent = '';
+    }
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     
 
     
