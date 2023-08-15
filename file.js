@@ -55,9 +55,21 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const form = document.forms[0];
+const inputsIsValidate = {
+    firstName: false,
+    lastName: false,
+    email: false,
+    password: false,
+    passwordConfirm: false,
+    checkbox: false
+};
 
 form.addEventListener("submit", function (e) {
-    alert("Форма отправлена");
+    if(!inputsIsValidate.email){
+        e.preventDefault();
+    }else{
+        alert('Форма була відправлена');  
+    } 
 });
 
 form.passwordConfirmInput.addEventListener("input", function () {
@@ -82,13 +94,42 @@ admin@example.com, superuser@example.com и user@example.com
 
 let blockedEmails = ['admin@example.com','superuser@example.com','user@example.com'];
 let blockedEmailError = document.querySelector('#blockedEmailError');
+let email;
 form.emailInput.addEventListener('input', function(){
-    let email = form.emailInput.value;
+    email = form.emailInput.value;
     if(blockedEmails.indexOf(email) != -1){
-        blockedEmailError.textContent = 'Email ' + email + ' не может использоваться при регестрации'
+        form.emailInput.setAttribute('invalid', true);
+        blockedEmailError.textContent = 'Email ' + email + ' не может использоваться при регестрации';
+        form.emailInput.style.border = '1px solid red';
     }
     else{
         blockedEmailError.textContent = '';
+        form.emailInput.style.border = '1px solid green'
+    }
+});
+
+form.firstNameInput.addEventListener('blur', function(){
+    if (form.firstNameInput.validity.valid) {
+        inputsIsValidate.firstName = true;
+    } else {
+        inputsIsValidate.firstName = false;
+    }
+});
+form.lastNameInput.addEventListener('blur', function(){
+    if (form.lastNameInput.validity.valid) {
+        inputsIsValidate.lastName = true;
+    } else {
+        inputsIsValidate.lastName = false;
+    }
+});
+form.emailInput.addEventListener('blur', function(){
+    let isBlockedEmail = blockedEmails.indexOf(email) != -1;
+    if (form.emailInput.validity.valid && !isBlockedEmail) {
+        inputsIsValidate.email = true;
+
+        form.emailInput.setAttribute('invalid', true);
+    } else {
+        inputsIsValidate.email = false;
     }
 });
 
