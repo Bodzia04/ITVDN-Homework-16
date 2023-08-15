@@ -19,7 +19,7 @@
         } */
         /* Задание 1,2: */
         /* Задание 3: */
-        .form-group {
+        /* .form-group {
             margin: 12px 4px;
         }
 
@@ -32,19 +32,65 @@
         }
 
         /* :valid - псевдокласс находит элементы, которые прошли валидацию */
-        input:valid {
+        /* input:valid {
             border: 1px solid green;
         }
 
         /* :invalid - псевдокласс находит элементы, которые не прошли валидацию */
-        input:invalid {
+        /* input:invalid {
             border: 1px solid red;
         }
 
         #blockedEmailError{
             color: red;
-        }
+        } */
         /* Задание 3: */
+        /* Задание 4: */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #userList {
+            width: 200px;
+            display: inline-block;
+        }
+
+        #userList>li {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #userList>li:hover {
+            background-color: orange;
+        }
+
+        #userList li.selected {
+            background-color: lightcoral;
+        }
+
+        #output {
+            display: inline-block;
+            border: 1px solid gray;
+            padding: 10px;
+            vertical-align: top;
+            margin-top: 20px;
+            width: 300px;
+            min-height: 180px;
+        }
+
+        .form-group {
+            margin-bottom: 4px;
+        }
+
+        .form-group label {
+            width: 85px;
+            display: inline-block;
+        }
+
+        .form-group input {
+            width: 200px;
+        }
+        /* Задание 4: */
     </style>
 </head>
 <body>
@@ -81,7 +127,7 @@
     </form> -->
     <!-- Задание 2: -->
     <!-- Задание 3: -->
-    <form>
+    <!-- <form>
         <div class="form-group">
             <label>Имя</label>
             <input type="text" name="firstNameInput" required>
@@ -110,8 +156,42 @@
         <div class="form-group">
             <input type="submit" value="Зарегистрироваться" >
         </div>
-    </form>
+    </form> -->
     <!-- Задание 3: -->
+    <!-- Задание 4: -->
+    <ul id="userList">
+    </ul>
+
+    <form id="output">
+        <div class="form-group">
+            <label for="firstName">Имя</label>
+            <input type="text" name="firstName" id="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Фамилия</label>
+            <input type="text" name="lastName" id="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="companyName">Компания</label>
+            <input type="text" name="companyName" id="companyName" required>
+        </div>
+        <div class="form-group">
+            <label for="balance">Баланс</label>
+            <input type="number" name="balance" id="balance" required min="1000">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Возраст</label>
+            <input type="number" name="age" id="age" required min="18">
+        </div>
+        <input type="submit" value="Save" id="saveButton">
+        <input type="reset" value="Reset">
+        <input type="button" value="Delete" id="deleteButton">
+    </form>
+    <!-- Задание 4: -->
     <script src="file.js"></script>
 </body>
 </html>
